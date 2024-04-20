@@ -106,4 +106,147 @@ class Codechef {
 }
 
 
-// 
+// Adjacent Sum Parity: 1013
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int cases = sc.nextInt();
+
+        for (int i = 0; i < cases; i++) {
+            int totalNumbers = sc.nextInt();
+            int sum = 0;
+            for (int j = 0; j < totalNumbers; j++) {
+                int num = sc.nextInt();
+                sum+=num;
+            }
+            
+            
+            if(sum%2==0){
+                System.out.println("YES");
+            }
+            else{
+                System.out.println("NO");
+            }
+        }
+
+    }
+}
+
+
+// Candies: 1018
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int cases = sc.nextInt();
+
+        for (int i = 0; i < cases; i++) {
+           int arrayLength = sc.nextInt();
+
+           int[] arr = new int[arrayLength*2];
+
+            for (int j = 0; j <arr.length ; j++) {
+                int num = sc.nextInt();
+                arr[j] = num;
+            }
+
+            boolean possible = true;
+
+            int iterator = 0;
+            while (iterator < arr.length){
+                int sum = 0;
+                int value = arr[iterator];
+                for (int j = 0; j < arr.length ; j++) {
+                    if(arr[j] == value){
+                        sum++;
+                    }
+                }
+
+                if(sum > 2){
+                    possible = false;
+                    break;
+                }
+                else{
+                    iterator++;
+                }
+            }
+
+
+            if (possible){
+                System.out.println("Yes");
+            }
+            else{
+                System.out.println("No");
+            }
+        }
+
+    }
+}
+
+
+
+// Chef Diet: 1025
+// Mistake done: I created only 1 "for" loop and checking the value but we are asking for all inputs and then checking value. Not in-between.
+import java.util.*;
+import java.lang.*;
+
+class Codechef {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int cases = sc.nextInt();
+
+        for (int i = 0; i < cases; i++) {
+            int totalDays = sc.nextInt();
+           int proteinPerDay = sc.nextInt();
+
+
+
+           boolean answer = true;
+           int printDay = 0;
+
+
+           int presentDay = 1;
+           int remainingProtein = 0;
+
+
+
+           int[] arr = new int[totalDays];
+            for (int j = 0; j < totalDays; j++) {
+                int dayProtein = sc.nextInt();
+                arr[j] = dayProtein;
+
+            }
+
+
+            for (int j = 0; j <arr.length ; j++) {
+                if((arr[j]+remainingProtein) >= proteinPerDay){
+                    presentDay++;
+                    remainingProtein += (arr[j]-proteinPerDay);
+                }
+                else{
+                    answer = false;
+                    printDay = presentDay;
+                    break;
+                }
+            }
+            if (answer){
+                System.out.print("YES\n");
+            }
+            else{
+                System.out.print("NO "+ printDay+"\n");
+
+            }
+        }
+
+    }
+}
