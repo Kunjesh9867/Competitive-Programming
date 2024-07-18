@@ -8,3 +8,4 @@ SELECT
         ELSE 'Scalene'
     END AS Triangle_Type
 FROM TRIANGLES
+;km;ll
